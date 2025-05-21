@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | ArtSyyCart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    h1, h2 { font-family: 'Orbitron', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white transition duration-300" id="main-body">
+
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-4 px-6 flex justify-between items-center border-b border-gray-700">
+    <h1 class="text-3xl font-bold text-pink-500">ArtSyyCart</h1>
+    <div>
+      <a href="index.html" class="mx-2 hover:text-pink-400">Home</a>
+      <a href="gallery.html" class="mx-2 hover:text-pink-400">Gallery</a>
+      <a href="about.html" class="mx-2 hover:text-pink-400">About</a>
+      <a href="contact.html" class="mx-2 text-pink-400 font-bold">Contact</a>
+      <button onclick="toggleDarkMode()" class="ml-4 border border-pink-500 px-3 py-1 rounded hover:bg-pink-500 hover:text-black transition">🌗</button>
+    </div>
+  </nav>
+
+  <!-- Contact Form -->
+  <section class="py-16 px-6 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-pink-400 mb-6">📬 Get in Touch</h2>
+    <form class="flex flex-col gap-4">
+      <input type="text" placeholder="Your Name" class="p-3 rounded bg-gray-800 text-white border border-pink-400" required>
+      <input type="email" placeholder="Your Email" class="p-3 rounded bg-gray-800 text-white border border-pink-400" required>
+      <textarea rows="5" placeholder="Your Message" class="p-3 rounded bg-gray-800 text-white border border-pink-400" required></textarea>
+      <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-black py-2 px-4 rounded font-semibold transition">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="bg-black py-10 px-6 border-t border-gray-700">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-pink-400">📩 Join Our Newsletter</h2>
+      <p class="text-gray-400 mt-2">Stay updated with new artworks and exhibitions.</p>
+      <div class="mt-4 flex flex-col sm:flex-row justify-center gap-3">
+        <input type="email" placeholder="Your email address" class="p-2 w-full sm:w-2/3 bg-gray-800 border border-pink-400 rounded text-white">
+        <button class="bg-pink-500 hover:bg-pink-600 text-black px-4 py-2 rounded">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 text-gray-400 py-6 px-4 text-center border-t border-pink-500 mt-10">
+    <p>Made with 💖 by <span class="text-pink-400">Shubh (Developer)</span> | 
+      <a href="https://instagram.com/dev.shubh" class="hover:text-white">@dev.shubh</a>
+    </p>
+    <p class="mt-2 text-sm">© 2025 ArtSyyCart. All rights reserved.</p>
+  </footer>
+
+  <script src="js/darkmode.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ArtSyyCart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@300;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            background-color: #000;
+            /* dark mode default */
+            color: #fff;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .fade-in.delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in.delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        .rgb-text {
+            background: linear-gradient(90deg, #ff0066, #ffcc00, #33ccff, #cc33ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbGlow 5s ease infinite;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @keyframes rgbGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Typing animation */
+        .typing {
+            overflow: hidden;
+            /* Ensures the text is hidden as it types */
+            border-right: .15em solid #ff3e8f;
+            /* Cursor */
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .1em;
+            animation:
+                typing 3s steps(22, end),
+                blink-caret .75s step-end infinite;
+            max-width: fit-content;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 22ch
+            }
+        }
+
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent
+            }
+
+            100% {
+                border-color: #ff3e8f
+            }
+        }
+
+        /* Navbar and section backgrounds transparent to inherit body bg */
+        nav,
+        section.hero {
+            background-color: transparent !important;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Light mode styles */
+        body.light {
+            background-color: #fff;
+            color: #000;
+        }
+
+        body.light a {
+            color: #d6336c;
+            /* darker pink */
+        }
+
+        body.light nav {
+            border-color: #ccc;
+        }
+
+        body.light nav a:hover {
+            color: #a0274e;
+        }
+
+        body.light button {
+            border-color: #d6336c;
+            color: #d6336c;
+        }
+
+        body.light button:hover {
+            background-color: #d6336c;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body id="main-body">
+
+    <!-- Navbar -->
+    <nav class="py-4 px-6 flex justify-between items-center border-b border-gray-700 fade-in">
+        <h1 class="text-3xl font-bold text-pink-500">🎨 ArtSyyCart</h1>
+        <div>
+            <a href="index.html" class="mx-2 text-pink-400 font-bold hover:text-pink-500 transition-colors">Home</a>
+            <a href="gallery.html" class="mx-2 hover:text-pink-400 transition-colors">Gallery</a>
+            <a href="about.html" class="mx-2 hover:text-pink-400 transition-colors">About</a>
+            <a href="contact.html" class="mx-2 hover:text-pink-400 transition-colors">Contact</a>
+            <button id="darkModeBtn" onclick="toggleDarkMode()"
+                class="ml-4 border border-pink-500 px-3 py-1 rounded hover:bg-pink-500 hover:text-black transition-colors">🌗</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section <!-- Hero with Logo and RGB Welcome -->
+        <section
+            class="hero h-screen bg-gradient-to-br from-purple-800 via-black to-black flex flex-col items-center justify-center text-center px-6">
+
+            <!-- Logo + Welcome -->
+            <div class="flex flex-col items-center fade-in delay-1">
+                <!-- Logo Image -->
+                <img src="images/logo.png" alt="ArtSyyCart Logo"
+                    class="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-lg border-4 border-pink-500" />
+
+                <!-- RGB Welcome Text -->
+                <h1 class="text-4xl md:text-5xl font-bold mb-2 rgb-text">Welcome to <span
+                        class="text-pink-500">ArtSyyCart</span></h1>
+            </div>
+
+            <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-xl fade-in delay-2">Discover stunning digital &
+                handmade
+                art from around the globe. Curated for passion, shown with style.</p>
+
+            <a href="gallery.html"
+                class="mt-4 bg-pink-500 px-6 py-2 rounded-full text-black font-semibold hover:bg-pink-600 transition-colors fade-in delay-2">🌟
+                Explore Gallery</a>
+        </section>
+
+
+        <script>
+            const toggleDarkMode = () => {
+                const body = document.getElementById('main-body');
+                const btn = document.getElementById('darkModeBtn');
+                const isDark = !body.classList.contains('light');
+
+                if (isDark) {
+                    // Switch to light mode
+                    body.classList.add('light');
+                    btn.textContent = '🌞'; // sun icon for light mode
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    // Switch to dark mode
+                    body.classList.remove('light');
+                    btn.textContent = '🌗'; // moon icon for dark mode
+                    localStorage.setItem('theme', 'dark');
+                }
+            };
+
+            // Apply saved theme on page load
+            window.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                const body = document.getElementById('main-body');
+                const btn = document.getElementById('darkModeBtn');
+
+                if (savedTheme === 'light') {
+                    body.classList.add('light');
+                    btn.textContent = '🌞';
+                } else {
+                    body.classList.remove('light');
+                    btn.textContent = '🌗';
+                }
+            });
+            const text = "Welcome to ArtSyyCart";
+            const typingText = document.getElementById("typing-text");
+            let index = 0;
+
+            function typeLetter() {
+                if (index < text.length) {
+                    typingText.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeLetter, 100);
+                }
+            }
+
+            window.addEventListener('DOMContentLoaded', typeLetter);
+        </script>
+</body>
+
+</html>

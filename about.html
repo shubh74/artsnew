@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>About | ArtSyyCart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@300;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            flex: 1;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: opacity 0.5s ease;
+        }
+
+        #loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .video-banner {
+            position: relative;
+            overflow: hidden;
+            height: 60vh;
+        }
+
+        .video-banner video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .video-banner .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .video-banner h1 {
+            color: #f472b6;
+            font-size: 3rem;
+        }
+
+        .dark-mode {
+            background-color: white !important;
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white transition-colors duration-300" id="main-body">
+    <!-- Loader -->
+    <div id="loader">ArtSyyCart is loading...</div>
+
+    <!-- Navigation -->
+    <nav class="bg-black text-white py-4 px-6 flex justify-between items-center border-b border-gray-700 z-50 relative">
+        <h1 class="text-3xl font-bold text-pink-500">ArtSyyCart</h1>
+        <div>
+            <a href="index.html" class="mx-2 hover:text-pink-400">Home</a>
+            <a href="gallery.html" class="mx-2 hover:text-pink-400">Gallery</a>
+            <a href="about.html" class="mx-2 text-pink-400 font-bold">About</a>
+            <a href="contact.html" class="mx-2 hover:text-pink-400">Contact</a>
+            <button onclick="toggleDarkMode()"
+                class="ml-4 border border-pink-500 px-3 py-1 rounded hover:bg-pink-500 hover:text-black transition">🌗</button>
+        </div>
+    </nav>
+
+    <!-- Video Banner -->
+    <section class="video-banner">
+        <video autoplay muted loop>
+            <source src="videos/banner-art.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay">
+            <h1 data-aos="zoom-in">Welcome to ArtSyyCart 🎨</h1>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 px-6 max-w-3xl mx-auto" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-6 text-pink-400">About ArtSyyCart</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+            ArtSyyCart is a modern platform that brings together passionate artists and curious viewers from around the
+            world.
+            We showcase digital and traditional artworks in a visually stunning, interactive way.
+        </p>
+        <p class="text-gray-400 mt-4">Join our mission to promote creativity, one canvas at a time. 🌍</p>
+    </section>
+
+    <!-- Daily Motivation -->
+    <section class="bg-black text-center py-10" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-pink-400 mb-6">💬 Daily Motivation</h2>
+        <div id="quoteCarousel" class="text-xl text-gray-300 italic transition-opacity duration-700">
+            "Art enables us to find ourselves and lose ourselves at the same time." – Thomas Merton
+        </div>
+    </section>
+
+    <!-- Artist Section -->
+    <section class="bg-gray-900 py-12 px-6 mt-10" data-aos="fade-right">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+            <img src="images/sneha-gajera.jpeg" alt="Artist Sneha Gajera"
+                class="w-48 h-48 rounded-lg border-4 border-pink-500 shadow-lg object-cover" />
+            <div>
+                <h2 class="text-4xl font-bold text-pink-400 mb-4">🎨 Sneha Gajera</h2>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Sneha is a visionary artist who blends contemporary styles and emotion. Her innovative techniques
+                    and breathtaking compositions have been featured internationally.
+                </p>
+                <div class="mt-5">
+                    <a href="https://www.instagram.com/artsyycart__?igsh=MTE3ZzUyajU2d2Jydw==" target="_blank"
+                        class="text-pink-400 hover:text-white text-xl font-semibold">📷 @sneha.gajera</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="bg-gray-900 py-12 px-6 mt-12" data-aos="fade-left">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+            <img src="images/shubh-dev.jpeg" alt="Developer Shubh"
+                class="w-32 h-32 rounded-full border-4 border-pink-500 shadow-lg object-cover" />
+            <div>
+                <h2 class="text-3xl font-bold text-pink-400 mb-2">👨‍💻 Shubh - Developer</h2>
+                <p class="text-gray-300 text-base leading-relaxed max-w-lg">
+                    Shubh is the mind behind the digital experience of ArtSyyCart. A developer passionate about mixing
+                    art with tech to help creators reach their audience better.
+                </p>
+                <div class="mt-3">
+                    <a href="https://www.instagram.com/shubh_2006__?igsh=MWN5Z3NqMnY5cm9seQ==" target="_follow"
+                        class="text-pink-400 hover:text-white text-lg font-semibold">📷 @dev.shubh</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 px-6 py-8 border-t border-pink-500 mt-10" data-aos="fade-in">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center md:text-left">
+            <!-- About -->
+            <div>
+                <h3 class="text-pink-400 text-xl font-semibold mb-2">About ArtSyyCart</h3>
+                <p class="text-sm leading-relaxed">
+                    A creative hub for artists and art lovers to share, explore, and get inspired. Powered with 💖 by
+                    passion & code.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-pink-400 text-xl font-semibold mb-2">Quick Links</h3>
+                <ul class="text-sm space-y-1">
+                    <li><a href="index.html" class="hover:text-white">🏠 Home</a></li>
+                    <li><a href="gallery.html" class="hover:text-white">🖼️ Gallery</a></li>
+                    <li><a href="about.html" class="hover:text-white">📖 About</a></li>
+                    <li><a href="contact.html" class="hover:text-white">📬 Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Developer Credit -->
+            <div>
+                <h3 class="text-pink-400 text-xl font-semibold mb-2">Developer</h3>
+                <p class="text-sm">Made with 💻 & 🎨 by <span class="text-white font-semibold">Shubh</span></p>
+                <a href="https://instagram.com/dev.shubh" target="_blank"
+                    class="inline-block mt-2 text-pink-400 hover:text-white">
+                    📷 @dev.shubh
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-gray-800 pt-4 text-center text-xs text-gray-500">
+            © 2025 ArtSyyCart. All rights reserved.
+        </div>
+    </footer>
+
+
+    <!-- JS Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            loader.classList.add("fade-out");
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.getElementById("main-body");
+            body.classList.toggle('bg-white');
+            body.classList.toggle('text-black');
+            body.classList.toggle('text-white');
+            body.classList.toggle('bg-black');
+        }
+
+        // Quote Carousel
+        const quotes = [
+            `"Creativity takes courage." – Henri Matisse`,
+            `"Every artist was first an amateur." – Ralph Waldo Emerson`,
+            `"Art is not freedom from discipline, but disciplined freedom." – John F. Kennedy`,
+            `"The world always seems brighter when you’ve just made something that wasn’t there before." – Neil Gaiman`
+        ];
+
+        let index = 0;
+        const quoteDiv = document.getElementById("quoteCarousel");
+
+        setInterval(() => {
+            quoteDiv.style.opacity = 0;
+            setTimeout(() => {
+                                quoteDiv.textContent = quotes[index];
+                quoteDiv.style.opacity = 1;
+                index = (index + 1) % quotes.length;
+            }, 500);
+        }, 5000); // Change quote every 5 seconds
+    </script>
+</body>
+
+</html>
